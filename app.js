@@ -73,23 +73,6 @@ const refs = {
 	lightboxCloseBtn: document.querySelector('[data-action="close-lightbox"]'),
 };
 
-// ============ markUp ============
-// const markupGallery = galleryItems.reduce(
-// 	(acc, { preview, original, description }) => {
-// 		return (
-// 			acc +
-// 			`<li class="gallery__item" >
-// 			<a class="gallery__link" href = ${original} >
-// 			<img class="gallery__image" src="${preview}"
-// 			data-source="${original}"
-// 			alt="${description}" />
-// 			</a>
-// 			</li>`
-// 		);
-// 	},
-// 	""
-// );
-
 function onGalleryListMarkupCreate(images) {
 	return images
 		.map(({ preview, original, description }) => {
@@ -98,9 +81,10 @@ function onGalleryListMarkupCreate(images) {
     class="gallery__link"
     href="${original}"
   >
-    <img
+    <img loading="lazy"
+
       class="gallery__image"
-      src="${preview}"
+   data-src="${preview}"
       data-source="${original}"
       alt="${description}"
     />
@@ -224,3 +208,20 @@ function onRightScroll(e) {
 // 	lightboxImage.src = newArrayOfImg[nextImgIndex].dataset.source;
 // 	// console.log(lightboxImg.src);
 // }
+
+// ============ markUp ============
+// const markupGallery = galleryItems.reduce(
+// 	(acc, { preview, original, description }) => {
+// 		return (
+// 			acc +
+// 			`<li class="gallery__item" >
+// 			<a class="gallery__link" href = ${original} >
+// 			<img class="gallery__image" src="${preview}"
+// 			data-source="${original}"
+// 			alt="${description}" />
+// 			</a>
+// 			</li>`
+// 		);
+// 	},
+// 	""
+// );
